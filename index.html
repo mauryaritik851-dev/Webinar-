@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>₹99 Webinar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family:Arial; margin:0; background:#f4f4f4; text-align:center;">
+
+<!-- HEADER -->
+<div style="background:linear-gradient(45deg,#ff6a00,#ee0979); color:white; padding:25px;">
+<h1>🔥 ₹99 Webinar 🔥</h1>
+<p>Ghar baithe earning sikho</p>
+</div>
+
+<!-- COUNTDOWN -->
+<h2 id="timer" style="color:red;">Offer Ends Soon ⏳</h2>
+
+<!-- IMAGE -->
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" 
+style="width:100%; height:200px; object-fit:cover;">
+
+<!-- MAIN BOX -->
+<div style="background:white; margin:20px; padding:20px; border-radius:10px;">
+
+<h2>👉 Aaj hi join karo</h2>
+
+<p>✔ Beginner friendly<br>
+✔ Step-by-step earning system<br>
+✔ Live training + support</p>
+
+<input id="name" placeholder="Apna Naam" style="width:90%; padding:10px; margin:10px;"><br>
+<input id="phone" placeholder="Mobile Number" style="width:90%; padding:10px; margin:10px;"><br>
+<input id="utr" placeholder="Payment UTR Number" style="width:90%; padding:10px; margin:10px;"><br>
+
+<!-- PAY BUTTON -->
+<button onclick="payNow()" 
+style="width:95%; padding:15px; background:blue; color:white; font-size:18px; border:none;">
+💰 Pay ₹99 Now
+</button>
+
+<br><br>
+
+<!-- WHATSAPP -->
+<button onclick="joinNow()" 
+style="width:95%; padding:15px; background:green; color:white; font-size:18px; border:none;">
+📲 Submit & Send Details
+</button>
+
+</div>
+
+<!-- TRUST -->
+<div style="background:#fff3cd; padding:15px; margin:20px; border-radius:10px;">
+<p>⚡ 100+ Students Joined</p>
+<p>⚡ Limited Seats Available</p>
+</div>
+
+<script>
+// Countdown Timer
+var time = 300;
+setInterval(function(){
+  var min = Math.floor(time/60);
+  var sec = time % 60;
+  document.getElementById("timer").innerHTML = "Offer Ends In " + min + ":" + (sec < 10 ? "0"+sec : sec);
+  if(time > 0){ time--; }
+},1000);
+
+// WhatsApp Submit
+function joinNow(){
+  var name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+  var utr = document.getElementById("utr").value;
+
+  var msg = "Hello, maine ₹99 webinar ke liye payment kar diya hai.\n\nName: " + name +
+            "\nMobile: " + phone +
+            "\nUTR: " + utr;
+
+  var url = "https://wa.me/919569476799R
+  ?text=" + encodeURIComponent(msg);
+
+  window.open(url, "_blank");
+}
+
+// UPI Payment
+function payNow(){
+  var upi = "7607822052@fam"
+  var name = document.getElementById("name").value;
+
+  var url = "upi://pay?pa=" + upi + "&pn=Webinar&am=99&cu=INR&tn=Webinar Fee - " + name;
+
+  window.location.href = url;
+}
+</script>
+
+</body>
+</html>
